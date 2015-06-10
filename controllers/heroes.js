@@ -24,7 +24,7 @@ Dota2Stats.HeroesController = Ember.ArrayController.extend({
       });
       newHero.save();
       this.set('heroFormToggled', false);
-      this.transitionToRoute('home');
+      // this.transitionToRoute('home');
     }
 
   }

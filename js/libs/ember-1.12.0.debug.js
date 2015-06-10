@@ -1457,9 +1457,9 @@ enifed('container/registry', ['exports', 'ember-metal/core', 'ember-metal/dictio
   var VALID_FULL_NAME_REGEXP = /^[^:]+.+:[^:]+$/;
 
   var instanceInitializersFeatureEnabled;
-  
+
     instanceInitializersFeatureEnabled = true;
-  
+
 
   /**
    A lightweight registry used to store factory and option information keyed
@@ -3771,10 +3771,10 @@ enifed('ember-application/system/application', ['exports', 'dag-map', 'container
       // decremented by the Application's own `initialize` method.
       this._readinessDeferrals = 1;
 
-      
+
         this.Router = (this.Router || Router['default']).extend();
         this.waitForDOMReady(this.buildDefaultInstance());
-      
+
     },
 
     /**
@@ -4104,7 +4104,7 @@ enifed('ember-application/system/application', ['exports', 'dag-map', 'container
       this._runInitializer('initializers', function (name, initializer) {
         Ember['default'].assert('No application initializer named \'' + name + '\'', !!initializer);
 
-        
+
           initializer.initialize(registry, App);
               });
     },
@@ -4204,7 +4204,7 @@ enifed('ember-application/system/application', ['exports', 'dag-map', 'container
     }
   });
 
-  
+
     Application.reopen({
       instanceInitializer: function (options) {
         this.constructor.instanceInitializer(options);
@@ -4214,9 +4214,9 @@ enifed('ember-application/system/application', ['exports', 'dag-map', 'container
     Application.reopenClass({
       instanceInitializer: buildInitializerMethod('instanceInitializers', 'instance initializer')
     });
-  
 
-  
+
+
   Application.reopenClass({
     initializers: create['default'](null),
     instanceInitializers: create['default'](null),
@@ -5018,7 +5018,7 @@ enifed('ember-debug', ['exports', 'ember-metal/core', 'ember-metal/utils', 'embe
     Ember['default'].FEATURES["features-stripped-test"] = true;
     var featuresWereStripped = true;
 
-    
+
     delete Ember['default'].FEATURES["features-stripped-test"];
     _warnIfUsingStrippedFeatureFlags(Ember['default'].ENV.FEATURES, featuresWereStripped);
 
@@ -5574,9 +5574,9 @@ enifed('ember-htmlbars', ['ember-metal/core', 'ember-template-compiler', 'ember-
   'use strict';
 
   helpers.registerHelper("view", view.viewHelper);
-  
+
     helpers.registerHelper("component", component.componentHelper);
-  
+
   helpers.registerHelper("yield", _yield.yieldHelper);
   helpers.registerHelper("with", _with.withHelper);
   helpers.registerHelper("if", if_unless.ifHelper);
@@ -6637,7 +6637,7 @@ enifed('ember-htmlbars/helpers/if_unless', ['exports', 'ember-metal/core', 'embe
     if (options.isBlock) {
       return appendBlockConditional(view, inverted, helperName, params, hash, options, env);
     } else {
-      
+
         return appendInlineConditional(view, inverted, helperName, params, hash, options, env);
           }
   }
@@ -7762,9 +7762,9 @@ enifed('ember-htmlbars/hooks/attribute', ['exports', 'ember-views/attr_nodes/att
 
   var boundAttributesEnabled = false;
 
-  
+
     boundAttributesEnabled = true;
-  
+
   function attribute(env, morph, element, attrName, attrValue) {
     if (boundAttributesEnabled) {
       var attrNode = new AttrNode['default'](attrName, attrValue);
@@ -9558,7 +9558,7 @@ enifed('ember-metal', ['exports', 'ember-metal/core', 'ember-metal/merge', 'embe
 
   Ember['default'].merge = merge['default'];
 
-  
+
   /**
     A function may be assigned to `Ember.onerror` to be called when Ember
     internals encounter an error. This is useful for specialized error handling
@@ -10816,7 +10816,7 @@ enifed('ember-metal/computed', ['exports', 'ember-metal/property_set', 'ember-me
   */
   function ComputedProperty(config, opts) {
     this.isDescriptor = true;
-    
+
       if (typeof config === "function") {
         config.__ember_arity = config.length;
         this._getter = config;
@@ -10833,7 +10833,7 @@ enifed('ember-metal/computed', ['exports', 'ember-metal/property_set', 'ember-me
           this._setter.__ember_arity = this._setter.length;
         }
       }
-    
+
     this._dependentKeys = undefined;
     this._suspended = undefined;
     this._meta = undefined;
@@ -11285,7 +11285,7 @@ enifed('ember-metal/computed', ['exports', 'ember-metal/property_set', 'ember-me
 
     var cp = new ComputedProperty(func);
     // jscs:disable
-    
+
     if (args) {
       cp.property.apply(cp, args);
     }
@@ -11822,7 +11822,7 @@ enifed('ember-metal/core', ['exports'], function (exports) {
 });
 enifed('ember-metal/dependent_keys', ['exports', 'ember-metal/platform/create', 'ember-metal/watching'], function (exports, o_create, watching) {
 
-  
+
   exports.addDependentKeys = addDependentKeys;
   exports.removeDependentKeys = removeDependentKeys;
 
@@ -12175,7 +12175,7 @@ enifed('ember-metal/error', ['exports', 'ember-metal/platform/create'], function
 });
 enifed('ember-metal/events', ['exports', 'ember-metal/core', 'ember-metal/utils', 'ember-metal/platform/create'], function (exports, Ember, utils, create) {
 
-  
+
   exports.accumulateListeners = accumulateListeners;
   exports.addListener = addListener;
   exports.suspendListener = suspendListener;
@@ -13077,7 +13077,7 @@ enifed('ember-metal/libraries', ['exports', 'ember-metal/core', 'ember-metal/enu
     }
   };
 
-  
+
   exports['default'] = Libraries;
 
 });
@@ -13775,7 +13775,7 @@ enifed('ember-metal/merge', ['exports', 'ember-metal/keys'], function (exports, 
 });
 enifed('ember-metal/mixin', ['exports', 'ember-metal/core', 'ember-metal/merge', 'ember-metal/array', 'ember-metal/platform/create', 'ember-metal/property_get', 'ember-metal/property_set', 'ember-metal/utils', 'ember-metal/expand_properties', 'ember-metal/properties', 'ember-metal/computed', 'ember-metal/binding', 'ember-metal/observer', 'ember-metal/events', 'ember-metal/streams/utils'], function (exports, Ember, merge, array, o_create, property_get, property_set, utils, expandProperties, ember_metal__properties, computed, ember_metal__binding, ember_metal__observer, events, streams__utils) {
 
-  
+
   exports.mixin = mixin;
   exports.required = required;
   exports.aliasMethod = aliasMethod;
@@ -14837,7 +14837,7 @@ enifed('ember-metal/path_cache', ['exports', 'ember-metal/cache'], function (exp
 });
 enifed('ember-metal/platform/create', ['exports', 'ember-metal/platform/define_properties'], function (exports, defineProperties) {
 
-  
+
 
 
   'REMOVE_USE_STRICT: true'; /**
@@ -15156,7 +15156,7 @@ enifed('ember-metal/properties', ['exports', 'ember-metal/core', 'ember-metal/ut
     if (desc instanceof Descriptor) {
       value = desc;
 
-      
+
         if (watching && define_property.hasPropertyAccessors) {
           define_property.defineProperty(obj, keyName, {
             configurable: true,
@@ -15174,7 +15174,7 @@ enifed('ember-metal/properties', ['exports', 'ember-metal/core', 'ember-metal/ut
       if (desc == null) {
         value = data;
 
-        
+
           if (watching && define_property.hasPropertyAccessors) {
             meta.values[keyName] = data;
             define_property.defineProperty(obj, keyName, {
@@ -15587,13 +15587,13 @@ enifed('ember-metal/property_get', ['exports', 'ember-metal/core', 'ember-metal/
     if (desc) {
       return desc.get(obj, keyName);
     } else {
-      
+
         if (define_property.hasPropertyAccessors && meta && meta.watching[keyName] > 0) {
           ret = meta.values[keyName];
         } else {
           ret = obj[keyName];
         }
-      
+
       if (ret === undefined && "object" === typeof obj && !(keyName in obj) && "function" === typeof obj.unknownProperty) {
         return obj.unknownProperty(keyName);
       }
@@ -15738,7 +15738,7 @@ enifed('ember-metal/property_set', ['exports', 'ember-metal/core', 'ember-metal/
         obj.setUnknownProperty(keyName, value);
       } else if (meta && meta.watching[keyName] > 0) {
         if (meta.proto !== obj) {
-          
+
             if (define_property.hasPropertyAccessors) {
               currentValue = meta.values[keyName];
             } else {
@@ -15748,7 +15748,7 @@ enifed('ember-metal/property_set', ['exports', 'ember-metal/core', 'ember-metal/
         // only trigger a change if the value has changed
         if (value !== currentValue) {
           property_events.propertyWillChange(obj, keyName);
-          
+
             if (define_property.hasPropertyAccessors) {
               if (currentValue === undefined && !(keyName in obj) || !Object.prototype.propertyIsEnumerable.call(obj, keyName)) {
                 properties.defineProperty(obj, keyName, null, value); // setup mandatory setter
@@ -17014,7 +17014,7 @@ enifed('ember-metal/streams/utils', ['exports', './stream'], function (exports, 
 });
 enifed('ember-metal/utils', ['exports', 'ember-metal/core', 'ember-metal/platform/create', 'ember-metal/platform/define_property', 'ember-metal/array'], function (exports, Ember, o_create, define_property, array) {
 
-  
+
   exports.uuid = uuid;
   exports.generateGuid = generateGuid;
   exports.guidFor = guidFor;
@@ -17302,11 +17302,11 @@ enifed('ember-metal/utils', ['exports', 'ember-metal/core', 'ember-metal/platfor
   // Placeholder for non-writable metas.
   var EMPTY_META = new Meta(null);
 
-  
+
     if (define_property.hasPropertyAccessors) {
       EMPTY_META.values = {};
     }
-  
+
 
   /**
     Retrieves the meta hash for an object. If `writable` is true ensures the
@@ -17343,11 +17343,11 @@ enifed('ember-metal/utils', ['exports', 'ember-metal/core', 'ember-metal/platfor
 
       ret = new Meta(obj);
 
-      
+
         if (define_property.hasPropertyAccessors) {
           ret.values = {};
         }
-      
+
 
       obj.__ember_meta__ = ret;
     } else if (ret.source !== obj) {
@@ -17363,11 +17363,11 @@ enifed('ember-metal/utils', ['exports', 'ember-metal/core', 'ember-metal/platfor
       ret.cacheMeta = undefined;
       ret.source = obj;
 
-      
+
         if (define_property.hasPropertyAccessors) {
           ret.values = o_create['default'](ret.values);
         }
-      
+
 
       obj["__ember_meta__"] = ret;
     }
@@ -17925,17 +17925,17 @@ enifed('ember-metal/watch_key', ['exports', 'ember-metal/core', 'ember-metal/uti
         obj.willWatchProperty(keyName);
       }
 
-      
+
         if (define_property.hasPropertyAccessors) {
           handleMandatorySetter(m, obj, keyName);
         }
-      
+
     } else {
       watching[keyName] = (watching[keyName] || 0) + 1;
     }
   }
 
-  
+
     var handleMandatorySetter = function handleMandatorySetter(m, obj, keyName) {
       var descriptor = Object.getOwnPropertyDescriptor && Object.getOwnPropertyDescriptor(obj, keyName);
       var configurable = descriptor ? descriptor.configurable : true;
@@ -17959,7 +17959,7 @@ enifed('ember-metal/watch_key', ['exports', 'ember-metal/core', 'ember-metal/uti
         });
       }
     };
-  
+
 
   // This is super annoying, but required until
   // https://github.com/babel/babel/issues/906 is resolved
@@ -17981,7 +17981,7 @@ enifed('ember-metal/watch_key', ['exports', 'ember-metal/core', 'ember-metal/uti
         obj.didUnwatchProperty(keyName);
       }
 
-      
+
         if (!desc && define_property.hasPropertyAccessors && keyName in obj) {
           define_property.defineProperty(obj, keyName, {
             configurable: true,
@@ -17999,7 +17999,7 @@ enifed('ember-metal/watch_key', ['exports', 'ember-metal/core', 'ember-metal/uti
             get: properties.DEFAULT_GETTER_FUNCTION(keyName)
           });
         }
-      
+
     } else if (watching[keyName] > 1) {
       watching[keyName]--;
     }
@@ -18899,7 +18899,7 @@ enifed('ember-routing-views', ['exports', 'ember-metal/core', 'ember-routing-vie
 
   Ember['default'].LinkView = link.LinkView;
   Ember['default'].OutletView = outlet.OutletView;
-  
+
   exports['default'] = Ember['default'];
 
 });
@@ -18925,9 +18925,9 @@ enifed('ember-routing-views/views/link', ['exports', 'ember-metal/core', 'ember-
   };
 
   var linkViewClassNameBindings = ["active", "loading", "disabled"];
-  
+
     linkViewClassNameBindings = ["active", "loading", "disabled", "transitioningIn", "transitioningOut"];
-  
+
 
   /**
     `Ember.LinkView` renders an element whose `click` event triggers a
@@ -19277,9 +19277,9 @@ enifed('ember-routing-views/views/link', ['exports', 'ember-metal/core', 'ember-
         transition.method("replace");
       }
 
-      
+
         return;
-      
+
 
       // Schedule eager URL update, but after we've given the transition
       // a chance to synchronously redirect.
@@ -20916,12 +20916,12 @@ enifed('ember-routing/system/dsl', ['exports', 'ember-metal/core', 'ember-metal/
         return array.indexOf.call(["array", "basic", "object", "application"], name) === -1;
       })());
 
-      
+
         if (this.enableLoadingSubstates) {
           createRoute(this, name + "_loading", { resetNamespace: options.resetNamespace });
           createRoute(this, name + "_error", { path: "/_unused_dummy_error_path_route_" + name + "/:error" });
         }
-      
+
 
       if (callback) {
         var fullName = getFullName(this, name, options.resetNamespace);
@@ -23405,11 +23405,11 @@ enifed('ember-routing/system/router', ['exports', 'ember-metal/core', 'ember-met
         emberRouter.didTransition(infos);
       };
 
-      
+
         router.willTransition = function (oldInfos, newInfos, transition) {
           emberRouter.willTransition(oldInfos, newInfos, transition);
         };
-      
+
     },
 
     _serializeQueryParams: function (targetRouteName, queryParams) {
@@ -23719,13 +23719,13 @@ enifed('ember-routing/system/router', ['exports', 'ember-metal/core', 'ember-met
     var targetChildRouteName = originatingChildRoute.routeName.split(".").pop();
     var namespace = parentRoute.routeName === "application" ? "" : parentRoute.routeName + ".";
 
-    
+
       // First, try a named loading state, e.g. 'foo_loading'
       childName = namespace + targetChildRouteName + "_" + name;
       if (routeHasBeenDefined(router, childName)) {
         return childName;
       }
-    
+
 
     // Second, try general loading state, e.g. 'loading'
     childName = namespace + name;
@@ -28837,16 +28837,16 @@ enifed('ember-runtime/mixins/mutable_array', ['exports', 'ember-metal/property_g
                     can be applied only to a collection that keeps its items in an ordered set.
                     It builds upon the Array mixin and adds methods to modify the array.
                     Concrete implementations of this class include ArrayProxy and ArrayController.
-                  
+
                     It is important to use the methods in this class to modify arrays so that
                     changes are observable. This allows the binding system in Ember to function
                     correctly.
-                  
-                  
+
+
                     Note that an Array can change even if it does not implement this mixin.
                     For example, one might implement a SparseArray that cannot be directly
                     modified, but if its underlying enumerable changes, it will change also.
-                  
+
                     @class MutableArray
                     @namespace Ember
                     @uses Ember.Array
@@ -30519,7 +30519,7 @@ enifed('ember-runtime/system/container', ['exports', 'ember-metal/property_set',
 });
 enifed('ember-runtime/system/core_object', ['exports', 'ember-metal', 'ember-metal/merge', 'ember-metal/property_get', 'ember-metal/utils', 'ember-metal/platform/create', 'ember-metal/chains', 'ember-metal/events', 'ember-metal/mixin', 'ember-metal/enumerable_utils', 'ember-metal/error', 'ember-metal/platform/define_property', 'ember-metal/keys', 'ember-runtime/mixins/action_handler', 'ember-metal/properties', 'ember-metal/binding', 'ember-metal/computed', 'ember-metal/injected_property', 'ember-metal/run_loop', 'ember-metal/watching', 'ember-metal/core', 'ember-runtime/inject'], function (exports, Ember, merge, property_get, utils, o_create, chains, events, mixin, enumerable_utils, EmberError, define_property, keys, ActionHandler, ember_metal__properties, ember_metal__binding, computed, InjectedProperty, run, watching, core, inject) {
 
-  
+
 
 
   /**
@@ -30629,7 +30629,7 @@ enifed('ember-runtime/system/core_object', ['exports', 'ember-metal', 'ember-met
               if (typeof this.setUnknownProperty === "function" && !(keyName in this)) {
                 this.setUnknownProperty(keyName, value);
               } else {
-                
+
                   if (define_property.hasPropertyAccessors) {
                     ember_metal__properties.defineProperty(this, keyName, null, value); // setup mandatory setter
                   } else {
@@ -33392,9 +33392,9 @@ enifed('ember-template-compiler/system/compile', ['exports', 'ember-template-com
 
   var compile; /**
                  Uses HTMLBars `compile` function to process a string into a compiled template.
-               
+
                  This is not present in production builds.
-               
+
                  @private
                  @method compile
                  @param {String} templateString This is the string to be compiled by HTMLBars.
@@ -33426,7 +33426,7 @@ enifed('ember-template-compiler/system/compile_options', ['exports', 'ember-meta
 
   exports['default'] = function (_options) {
     var disableComponentGeneration = true;
-    
+
     var options = _options || {};
     // When calling `Ember.Handlebars.compile()` a second argument of `true`
     // had a special meaning (long since lost), this just gaurds against
@@ -38245,7 +38245,7 @@ enifed('ember-views/views/component', ['exports', 'ember-metal/core', 'ember-vie
     }
   });
 
-  
+
   exports['default'] = Component;
 
 });
@@ -40013,7 +40013,7 @@ enifed('ember-views/views/text_field', ['exports', 'ember-metal/core', 'ember-me
   }
 
   function getTypeComputed() {
-    
+
       return computed.computed({
         get: function () {
           return "text";

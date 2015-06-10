@@ -1025,21 +1025,21 @@
       The REST adapter allows your store to communicate with an HTTP server by
       transmitting JSON via XHR. Most Ember.js apps that consume a JSON API
       should use the REST adapter.
-    
+
       This adapter is designed around the idea that the JSON exchanged with
       the server should be conventional.
-    
+
       ## JSON Structure
-    
+
       The REST adapter expects the JSON returned from your server to follow
       these conventions.
-    
+
       ### Object Root
-    
+
       The JSON payload should be an object that contains the record inside a
       root property. For example, in response to a `GET` request for
       `/posts/1`, the JSON should look like this:
-    
+
       ```js
       {
         "post": {
@@ -1049,10 +1049,10 @@
         }
       }
       ```
-    
+
       Similarly, in response to a `GET` request for `/posts`, the JSON should
       look like this:
-    
+
       ```js
       {
         "posts": [
@@ -1069,26 +1069,26 @@
         ]
       }
       ```
-    
+
       ### Conventional Names
-    
+
       Attribute names in your JSON payload should be the camelCased versions of
       the attributes in your Ember.js models.
-    
+
       For example, if you have a `Person` model:
-    
+
       ```app/models/person.js
       import DS from 'ember-data';
-    
+
       export default DS.Model.extend({
         firstName: DS.attr('string'),
         lastName: DS.attr('string'),
         occupation: DS.attr('string')
       });
       ```
-    
+
       The JSON returned should look like this:
-    
+
       ```js
       {
         "person": {
@@ -1099,45 +1099,45 @@
         }
       }
       ```
-    
+
       ## Customization
-    
+
       ### Endpoint path customization
-    
+
       Endpoint paths can be prefixed with a `namespace` by setting the namespace
       property on the adapter:
-    
+
       ```app/adapters/application.js
       import DS from 'ember-data';
-    
+
       export default DS.RESTAdapter.extend({
         namespace: 'api/1'
       });
       ```
       Requests for `App.Person` would now target `/api/1/people/1`.
-    
+
       ### Host customization
-    
+
       An adapter can target other hosts by setting the `host` property.
-    
+
       ```app/adapters/application.js
       import DS from 'ember-data';
-    
+
       export default DS.RESTAdapter.extend({
         host: 'https://api.example.com'
       });
       ```
-    
+
       ### Headers customization
-    
+
       Some APIs require HTTP headers, e.g. to provide an API key. Arbitrary
       headers can be set as key/value pairs on the `RESTAdapter`'s `headers`
       object and Ember Data will send them along with each ajax request.
-    
-    
+
+
       ```app/adapters/application.js
       import DS from 'ember-data';
-    
+
       export default DS.RESTAdapter.extend({
         headers: {
           "API_KEY": "secret key",
@@ -1145,14 +1145,14 @@
         }
       });
       ```
-    
+
       `headers` can also be used as a computed property to support dynamic
       headers. In the example below, the `session` object has been
       injected into an adapter by Ember's container.
-    
+
       ```app/adapters/application.js
       import DS from 'ember-data';
-    
+
       export default DS.RESTAdapter.extend({
         headers: function() {
           return {
@@ -1162,17 +1162,17 @@
         }.property("session.authToken")
       });
       ```
-    
+
       In some cases, your dynamic headers may require data from some
       object outside of Ember's observer system (for example
       `document.cookie`). You can use the
       [volatile](/api/classes/Ember.ComputedProperty.html#method_volatile)
       function to set the property into a non-cached mode causing the headers to
       be recomputed with every request.
-    
+
       ```app/adapters/application.js
       import DS from 'ember-data';
-    
+
       export default DS.RESTAdapter.extend({
         headers: function() {
           return {
@@ -1182,7 +1182,7 @@
         }.property().volatile()
       });
       ```
-    
+
       @class RESTAdapter
       @constructor
       @namespace DS

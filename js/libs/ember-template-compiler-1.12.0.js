@@ -303,7 +303,7 @@ enifed('ember-debug', ['exports', 'ember-metal/core', 'ember-metal/utils', 'embe
     Ember['default'].FEATURES["features-stripped-test"] = true;
     var featuresWereStripped = true;
 
-    
+
     delete Ember['default'].FEATURES["features-stripped-test"];
     _warnIfUsingStrippedFeatureFlags(Ember['default'].ENV.FEATURES, featuresWereStripped);
 
@@ -535,7 +535,7 @@ enifed('ember-metal', ['exports', 'ember-metal/core', 'ember-metal/merge', 'embe
 
   Ember['default'].merge = merge['default'];
 
-  
+
   /**
     A function may be assigned to `Ember.onerror` to be called when Ember
     internals encounter an error. This is useful for specialized error handling
@@ -1793,7 +1793,7 @@ enifed('ember-metal/computed', ['exports', 'ember-metal/property_set', 'ember-me
   */
   function ComputedProperty(config, opts) {
     this.isDescriptor = true;
-    
+
       if (typeof config === "function") {
         config.__ember_arity = config.length;
         this._getter = config;
@@ -1810,7 +1810,7 @@ enifed('ember-metal/computed', ['exports', 'ember-metal/property_set', 'ember-me
           this._setter.__ember_arity = this._setter.length;
         }
       }
-    
+
     this._dependentKeys = undefined;
     this._suspended = undefined;
     this._meta = undefined;
@@ -2262,7 +2262,7 @@ enifed('ember-metal/computed', ['exports', 'ember-metal/property_set', 'ember-me
 
     var cp = new ComputedProperty(func);
     // jscs:disable
-    
+
     if (args) {
       cp.property.apply(cp, args);
     }
@@ -2799,7 +2799,7 @@ enifed('ember-metal/core', ['exports'], function (exports) {
 });
 enifed('ember-metal/dependent_keys', ['exports', 'ember-metal/platform/create', 'ember-metal/watching'], function (exports, o_create, watching) {
 
-  
+
   exports.addDependentKeys = addDependentKeys;
   exports.removeDependentKeys = removeDependentKeys;
 
@@ -3152,7 +3152,7 @@ enifed('ember-metal/error', ['exports', 'ember-metal/platform/create'], function
 });
 enifed('ember-metal/events', ['exports', 'ember-metal/core', 'ember-metal/utils', 'ember-metal/platform/create'], function (exports, Ember, utils, create) {
 
-  
+
   exports.accumulateListeners = accumulateListeners;
   exports.addListener = addListener;
   exports.suspendListener = suspendListener;
@@ -4054,7 +4054,7 @@ enifed('ember-metal/libraries', ['exports', 'ember-metal/core', 'ember-metal/enu
     }
   };
 
-  
+
   exports['default'] = Libraries;
 
 });
@@ -4752,7 +4752,7 @@ enifed('ember-metal/merge', ['exports', 'ember-metal/keys'], function (exports, 
 });
 enifed('ember-metal/mixin', ['exports', 'ember-metal/core', 'ember-metal/merge', 'ember-metal/array', 'ember-metal/platform/create', 'ember-metal/property_get', 'ember-metal/property_set', 'ember-metal/utils', 'ember-metal/expand_properties', 'ember-metal/properties', 'ember-metal/computed', 'ember-metal/binding', 'ember-metal/observer', 'ember-metal/events', 'ember-metal/streams/utils'], function (exports, Ember, merge, array, o_create, property_get, property_set, utils, expandProperties, ember_metal__properties, computed, ember_metal__binding, ember_metal__observer, events, streams__utils) {
 
-  
+
   exports.mixin = mixin;
   exports.required = required;
   exports.aliasMethod = aliasMethod;
@@ -5814,7 +5814,7 @@ enifed('ember-metal/path_cache', ['exports', 'ember-metal/cache'], function (exp
 });
 enifed('ember-metal/platform/create', ['exports', 'ember-metal/platform/define_properties'], function (exports, defineProperties) {
 
-  
+
 
 
   'REMOVE_USE_STRICT: true'; /**
@@ -6133,7 +6133,7 @@ enifed('ember-metal/properties', ['exports', 'ember-metal/core', 'ember-metal/ut
     if (desc instanceof Descriptor) {
       value = desc;
 
-      
+
         if (watching && define_property.hasPropertyAccessors) {
           define_property.defineProperty(obj, keyName, {
             configurable: true,
@@ -6151,7 +6151,7 @@ enifed('ember-metal/properties', ['exports', 'ember-metal/core', 'ember-metal/ut
       if (desc == null) {
         value = data;
 
-        
+
           if (watching && define_property.hasPropertyAccessors) {
             meta.values[keyName] = data;
             define_property.defineProperty(obj, keyName, {
@@ -6564,13 +6564,13 @@ enifed('ember-metal/property_get', ['exports', 'ember-metal/core', 'ember-metal/
     if (desc) {
       return desc.get(obj, keyName);
     } else {
-      
+
         if (define_property.hasPropertyAccessors && meta && meta.watching[keyName] > 0) {
           ret = meta.values[keyName];
         } else {
           ret = obj[keyName];
         }
-      
+
       if (ret === undefined && "object" === typeof obj && !(keyName in obj) && "function" === typeof obj.unknownProperty) {
         return obj.unknownProperty(keyName);
       }
@@ -6715,7 +6715,7 @@ enifed('ember-metal/property_set', ['exports', 'ember-metal/core', 'ember-metal/
         obj.setUnknownProperty(keyName, value);
       } else if (meta && meta.watching[keyName] > 0) {
         if (meta.proto !== obj) {
-          
+
             if (define_property.hasPropertyAccessors) {
               currentValue = meta.values[keyName];
             } else {
@@ -6725,7 +6725,7 @@ enifed('ember-metal/property_set', ['exports', 'ember-metal/core', 'ember-metal/
         // only trigger a change if the value has changed
         if (value !== currentValue) {
           property_events.propertyWillChange(obj, keyName);
-          
+
             if (define_property.hasPropertyAccessors) {
               if (currentValue === undefined && !(keyName in obj) || !Object.prototype.propertyIsEnumerable.call(obj, keyName)) {
                 properties.defineProperty(obj, keyName, null, value); // setup mandatory setter
@@ -7991,7 +7991,7 @@ enifed('ember-metal/streams/utils', ['exports', './stream'], function (exports, 
 });
 enifed('ember-metal/utils', ['exports', 'ember-metal/core', 'ember-metal/platform/create', 'ember-metal/platform/define_property', 'ember-metal/array'], function (exports, Ember, o_create, define_property, array) {
 
-  
+
   exports.uuid = uuid;
   exports.generateGuid = generateGuid;
   exports.guidFor = guidFor;
@@ -8279,11 +8279,11 @@ enifed('ember-metal/utils', ['exports', 'ember-metal/core', 'ember-metal/platfor
   // Placeholder for non-writable metas.
   var EMPTY_META = new Meta(null);
 
-  
+
     if (define_property.hasPropertyAccessors) {
       EMPTY_META.values = {};
     }
-  
+
 
   /**
     Retrieves the meta hash for an object. If `writable` is true ensures the
@@ -8320,11 +8320,11 @@ enifed('ember-metal/utils', ['exports', 'ember-metal/core', 'ember-metal/platfor
 
       ret = new Meta(obj);
 
-      
+
         if (define_property.hasPropertyAccessors) {
           ret.values = {};
         }
-      
+
 
       obj.__ember_meta__ = ret;
     } else if (ret.source !== obj) {
@@ -8340,11 +8340,11 @@ enifed('ember-metal/utils', ['exports', 'ember-metal/core', 'ember-metal/platfor
       ret.cacheMeta = undefined;
       ret.source = obj;
 
-      
+
         if (define_property.hasPropertyAccessors) {
           ret.values = o_create['default'](ret.values);
         }
-      
+
 
       obj["__ember_meta__"] = ret;
     }
@@ -8902,17 +8902,17 @@ enifed('ember-metal/watch_key', ['exports', 'ember-metal/core', 'ember-metal/uti
         obj.willWatchProperty(keyName);
       }
 
-      
+
         if (define_property.hasPropertyAccessors) {
           handleMandatorySetter(m, obj, keyName);
         }
-      
+
     } else {
       watching[keyName] = (watching[keyName] || 0) + 1;
     }
   }
 
-  
+
     var handleMandatorySetter = function handleMandatorySetter(m, obj, keyName) {
       var descriptor = Object.getOwnPropertyDescriptor && Object.getOwnPropertyDescriptor(obj, keyName);
       var configurable = descriptor ? descriptor.configurable : true;
@@ -8936,7 +8936,7 @@ enifed('ember-metal/watch_key', ['exports', 'ember-metal/core', 'ember-metal/uti
         });
       }
     };
-  
+
 
   // This is super annoying, but required until
   // https://github.com/babel/babel/issues/906 is resolved
@@ -8958,7 +8958,7 @@ enifed('ember-metal/watch_key', ['exports', 'ember-metal/core', 'ember-metal/uti
         obj.didUnwatchProperty(keyName);
       }
 
-      
+
         if (!desc && define_property.hasPropertyAccessors && keyName in obj) {
           define_property.defineProperty(obj, keyName, {
             configurable: true,
@@ -8976,7 +8976,7 @@ enifed('ember-metal/watch_key', ['exports', 'ember-metal/core', 'ember-metal/uti
             get: properties.DEFAULT_GETTER_FUNCTION(keyName)
           });
         }
-      
+
     } else if (watching[keyName] > 1) {
       watching[keyName]--;
     }
@@ -9335,9 +9335,9 @@ enifed('ember-template-compiler/system/compile', ['exports', 'ember-template-com
 
   var compile; /**
                  Uses HTMLBars `compile` function to process a string into a compiled template.
-               
+
                  This is not present in production builds.
-               
+
                  @private
                  @method compile
                  @param {String} templateString This is the string to be compiled by HTMLBars.
@@ -9369,7 +9369,7 @@ enifed('ember-template-compiler/system/compile_options', ['exports', 'ember-meta
 
   exports['default'] = function (_options) {
     var disableComponentGeneration = true;
-    
+
     var options = _options || {};
     // When calling `Ember.Handlebars.compile()` a second argument of `true`
     // had a special meaning (long since lost), this just gaurds against
@@ -10127,7 +10127,7 @@ enifed("htmlbars-compiler/hydration-opcode-compiler",
 
     HydrationOpcodeCompiler.prototype.mustache = function(mustache, childIndex, childCount) {
       this.pushMorphPlaceholderNode(childIndex, childCount);
-      
+
       var sexpr = mustache.sexpr;
 
       var morphNum = this.morphNum++;
@@ -11383,7 +11383,7 @@ enifed("htmlbars-syntax/handlebars/compiler/parser",
 
     var $0 = $$.length - 1;
     switch (yystate) {
-    case 1: return $$[$0-1]; 
+    case 1: return $$[$0-1];
     break;
     case 2:this.$ = new yy.Program($$[$0], null, {}, yy.locInfo(this._$));
     break;
@@ -11423,7 +11423,7 @@ enifed("htmlbars-syntax/handlebars/compiler/parser",
         program.chained = true;
 
         this.$ = { strip: $$[$0-2].strip, program: program, chain: true };
-      
+
     break;
     case 19:this.$ = $$[$0];
     break;
@@ -11467,7 +11467,7 @@ enifed("htmlbars-syntax/handlebars/compiler/parser",
     break;
     case 39:this.$ = yy.preparePath(false, $$[$0], this._$);
     break;
-    case 40: $$[$0-2].push({part: $$[$0], separator: $$[$0-1]}); this.$ = $$[$0-2]; 
+    case 40: $$[$0-2].push({part: $$[$0], separator: $$[$0-1]}); this.$ = $$[$0-2];
     break;
     case 41:this.$ = [{part: $$[$0]}];
     break;
@@ -11788,22 +11788,22 @@ enifed("htmlbars-syntax/handlebars/compiler/parser",
                                          this.begin("mu");
                                        }
                                        if(yy_.yytext) return 14;
-                                     
+
     break;
     case 1:return 14;
     break;
     case 2:
                                        this.popState();
                                        return 14;
-                                     
+
     break;
     case 3:
                                       yy_.yytext = yy_.yytext.substr(5, yy_.yyleng-9);
                                       this.popState();
                                       return 16;
-                                     
+
     break;
-    case 4: return 14; 
+    case 4: return 14;
     break;
     case 5:
       this.popState();
@@ -11814,13 +11814,13 @@ enifed("htmlbars-syntax/handlebars/compiler/parser",
     break;
     case 7:return 52;
     break;
-    case 8: return 17; 
+    case 8: return 17;
     break;
     case 9:
                                       this.popState();
                                       this.begin('raw');
                                       return 19;
-                                     
+
     break;
     case 10:return 42;
     break;
@@ -12104,7 +12104,7 @@ enifed("htmlbars-syntax/handlebars/compiler/whitespace-control",
       return mustache.strip;
     };
 
-    WhitespaceControl.prototype.PartialStatement = 
+    WhitespaceControl.prototype.PartialStatement =
         WhitespaceControl.prototype.CommentStatement = function(node) {
       var strip = node.strip || {};
       return {
@@ -12858,7 +12858,7 @@ enifed("htmlbars-syntax/utils",
   function(__dependency1__, __exports__) {
     "use strict";
     var indexOfArray = __dependency1__.indexOfArray;
-    // Regex to validate the identifier for block parameters. 
+    // Regex to validate the identifier for block parameters.
     // Based on the ID validation regex in Handlebars.
 
     var ID_INVERSE_PATTERN = /[!"#%-,\.\/;->@\[-\^`\{-~]/;
