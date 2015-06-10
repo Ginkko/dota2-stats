@@ -2,3 +2,8 @@
 .ember-application {
     margin: 20px;
 }
+
+body {
+  background: black;
+  color: red;
+}
