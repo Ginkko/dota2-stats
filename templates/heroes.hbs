@@ -1,6 +1,6 @@
 <h1>Heroes</h1>
 
-{{#if addingHero}}
+{{#if heroFormToggled}}
 
 <form>
   <div class="form-group">
@@ -10,21 +10,28 @@
 
   <div class="form-group">
     <label for="primary-stat">Primary Stat:</label>
-    {{view "select" content=primaryStats}}
+    {{view "select" content=primaryStats value=primaryStat}}
   </div>
 
   <div class="form-group">
-    {{#each primaryStats}}
+    {{#each roles}}
 
       <label for=this>{{this}}:</label>
       {{input type="checkbox" name=this}}
 
     {{/each}}
+
   </div>
+  <button class='btn btn-success' {{action 'saveHero'}}>Add Hero</button>
 </form>
 
 {{else}}
 
-  <button class='btn btn-info' {{action 'addHero'}}>Create New Hero</button>
+
+  {{#each}}
+    {{name}}
+  {{/each}}
+
+  <button class='btn btn-info' {{action 'heroFormToggle'}}>Create New Hero</button>
 
 {{/if}}
