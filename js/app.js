@@ -1,1 +1,1 @@
-App = Ember.Application.create();
+Dota2Stats = Ember.Application.create();
