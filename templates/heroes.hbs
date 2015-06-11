@@ -16,14 +16,26 @@
   <div class="form-group">
     <label for="Hard Carry">Hard Carry:</label>
     {{input name="Hard Carry" type='checkbox' checked=hardCarry}}
-
+    <label for="Semi-Carry">Semi-Carry:</label>
+    {{input name="Semi-Carry" type='checkbox' checked=semiCarry}}
+    <label for="Support">Support:</label>
+    {{input name="Support" type='checkbox' checked=support}}
+    <label for="Roamer">Roamer:</label>
+    {{input name="Roamer" type='checkbox' checked=roamer}}
+    <label for="Ganker">Ganker:</label>
+    {{input name="Ganker" type='checkbox' checked=ganker}}
+    <label for="Initiator">Initiator:</label>
+    {{input name="Initiator" type='checkbox' checked=initiator}}
+    <label for="Durable">Durable:</label>
+    {{input name="Durable" type='checkbox' checked=durable}}
+    <label for="Disabler">Disabler:</label>
+    {{input name="Disabler" type='checkbox' checked=disabler}}
   </div>
+
   <button class='btn btn-success' {{action 'saveHero'}}>Add Hero</button>
 </form>
 
 {{else}}
-
-
   {{#each}}
     {{name}}
     {{primaryStat}}
