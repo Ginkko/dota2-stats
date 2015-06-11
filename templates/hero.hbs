@@ -1,7 +1,10 @@
 <h1>{{name}}</h1>
 
-  {{name}}
-  {{primaryStat}}
+<h3>Primary Stat: {{primaryStat}}</h3>
+
+<label for="roles">Roles:</label>
+<ul name="roles">
   {{#each role in roles}}
-    {{role}}
+    <li>{{role}}</li>
   {{/each}}
+</ul>
