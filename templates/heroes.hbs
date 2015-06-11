@@ -36,12 +36,9 @@
 </form>
 
 {{else}}
+
   {{#each}}
-    {{name}}
-    {{primaryStat}}
-    {{#each role in roles}}
-      {{role}}
-    {{/each}}
+    {{#link-to 'hero' id}}{{name}}{{/link-to}}
   {{/each}}
 
   <button class='btn btn-info' {{action 'heroFormToggle'}}>Create New Hero</button>
