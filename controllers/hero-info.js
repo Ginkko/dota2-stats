@@ -4,8 +4,6 @@ Dota2Stats.HeroInfoController = Ember.ObjectController.extend({
   actions: {
     addRadiant: function() {
       var currentHero = this.store.find('hero', this.get('id'));
-
-      debugger;
       var isAdded = false;
       var radiantTeam = this.get('controllers.games.radiantTeam');
 
@@ -15,7 +13,11 @@ Dota2Stats.HeroInfoController = Ember.ObjectController.extend({
         }
       }
 
-      if(!isAdded) {
+      if(isAdded) {
+
+        alert('This hero already exist on this team');
+
+      } else {
 
         this.get('controllers.games.radiantTeam').pushObject(currentHero);
         this.get('controllers.games.avaliableHeroes').removeObject(currentHero);
