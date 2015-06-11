@@ -8,4 +8,11 @@
   {{/each}}
 </ul>
 
-<button class="btn btn-info" {{action "addRadiant"}}>Add to Radiant</button>
+
+{{#if isRadiantFull}}
+<fieldset disabled>
+  <button class="btn btn-info" {{action "addRadiant"}}>Add to Radiant</button>
+</fieldset>
+{{else}}
+  <button class="btn btn-info" {{action "addRadiant"}}>Add to Radiant</button>
+{{/if}}
