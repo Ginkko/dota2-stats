@@ -103,7 +103,7 @@ Dota2Stats.HeroesController = Ember.ArrayController.extend({
       var newHero = this.store.createRecord('hero', {
         name: this.get('name'),
         primaryStat: this.get('primaryStat'),
-        roles: checkedRoles
+        roles: this.get('checkedRoles')
       });
       newHero.save();
       this.set('heroFormToggled', false);
