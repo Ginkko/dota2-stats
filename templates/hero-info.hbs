@@ -1,0 +1,11 @@
+<p>{{name}} Details:</p>
+<p>Primary Stat: {{primaryStat}}</p>
+
+<label for="roles">Roles:</label>
+<ul name="roles">
+  {{#each role in roles}}
+    <li>{{role}}</li>
+  {{/each}}
+</ul>
+
+<button class="btn btn-info" {{action "addRadiant"}}>Add to Radiant</button>
